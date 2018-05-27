@@ -1,0 +1,56 @@
+<div class="container">
+	<h1>Test APB</h1>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">Panel Heading</div>
+				<div class="panel-body">
+					<form [formGroup]="apiForm" (ngSubmit)="validateForm()">
+						<div class="row">
+							<div class="col-md-3">Custome Name</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control" formControlName="customerType"
+										minlength=3>
+
+									<div *ngIf="apiForm.controls['customerType'].hasError('required')">
+										Please enter name</div>
+									<div *ngIf="apiForm.controls['customerType'].hasError('minlength')">
+										Please enter at least 3 character</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">Customer ID</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control" formControlName="custId">
+
+									<div *ngIf="apiForm.controls['custId'].hasError('required')">
+										Please enter customer Id</div>
+								
+								</div>
+
+							</div>
+						</div>
+						<div class="row"></div>
+						<div class="row">
+							<div class="col-md-3"></div>
+							<div class="col-md-3">
+								<button type="submit" class="btn btn-primary"
+									[disabled]="apiForm.invalid">submit</button>
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-body">A Basic Panel</div>
+			</div>
+		</div>
+	</div>
+</div>
